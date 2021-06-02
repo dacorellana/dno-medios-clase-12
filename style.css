@@ -1,0 +1,45 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@300;400&display=swap');');
+
+*{
+	transition:all ease 0.5s;
+	font-family: 'Open Sans',300;
+}
+
+:hover{
+	transition:all ease 0.5s;
+}
+
+a.nav-link{
+	text-transform: lowercase;
+	font-variant: small-caps;
+}
+
+section header{
+	height:auto;
+	min-height: 60vh;
+	font-family: 'Abril Fatface';
+}
+
+section#hello header{
+	background:silver url('https://picsum.photos/id/27/900/400') center center no-repeat;
+	background-size:cover;
+
+}
+
+section#work header{
+	background:silver url('https://picsum.photos/id/301/900/400') center center no-repeat;
+	background-size:cover;
+}
+
+section#contact header{
+	background:silver url('https://picsum.photos/id/58/900/400') center center no-repeat;
+	background-size:cover;
+}
+
+:target:before {
+	content:"";
+	display:block;
+	height:70px;
+	margin:-70px 0 0;
+}
