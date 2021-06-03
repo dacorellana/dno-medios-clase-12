@@ -1,45 +1,44 @@
-@charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@300;400&display=swap');');
+//El scroll
+var secundario = document.getElementById("secundario").offsetHeight;
+window.addEventListener("scroll", (event) => {
+    let scroll = this.scrollY;
+    console.log(scroll);
 
-*{
-	transition:all ease 0.5s;
-	font-family: 'Open Sans',300;
-}
+    if (scroll > secundario + 10) {
+        document.getElementById("principal").classList.add("fixed-top");
+    } else {
+        document.getElementById("principal").classList.remove("fixed-top");
+    }
+});
+//La API
+fetch("https://sheet.best/api/sheets/02905ed7-6d44-4796-8942-ba4420dd7d10")
+.then((response) => {
+    return response.json();
+})
+.then((data) => {
+    console.log(data);
+    var portfolio = data;
+    portfolio.forEach(function (trabajo) {
+        if (trabajo.tipo.includes("interiores")) {
+        especialidad = ' data-especialidad="interiores" ';
+        } else {
+        especialidad = ' data-especialidad="exteriores" ';
+        }
+        document.getElementById("portfolio").innerHTML +=
+            '<div class="col-sm-6 col-lg-4 col-xxl-3"'+
+            especialidad
+            +'><div class="card shadow-sm"><img src="' +
+            trabajo.image +
+            '" class="card-img-top" alt="' +
+            trabajo.title +
+            '"><div class="card-body"><h5 class="card-title">' +
+            trabajo.title +
+            '</h5><p class="card-text">' +
+            trabajo.text +
+            "</p></div></div></div>";
+        });
 
-:hover{
-	transition:all ease 0.5s;
-}
-
-a.nav-link{
-	text-transform: lowercase;
-	font-variant: small-caps;
-}
-
-section header{
-	height:auto;
-	min-height: 60vh;
-	font-family: 'Abril Fatface';
-}
-
-section#hello header{
-	background:silver url('https://picsum.photos/id/534/900/400?grayscale') center center no-repeat;
-	background-size:cover;
-
-}
-
-section#work header{
-	background:silver url('https://picsum.photos/id/319/900/400?grayscale') center center no-repeat;
-	background-size:cover;
-}
-
-section#contact header{
-	background:silver url('https://picsum.photos/id/221/900/400?grayscale') center center no-repeat;
-	background-size:cover;
-}
-
-:target:before {
-	content:"";
-	display:block;
-	height:70px;
-	margin:-70px 0 0;
-}
+    })
+.catch((err) => {
+    console.log("Pucha, algo falló", err);
+});
