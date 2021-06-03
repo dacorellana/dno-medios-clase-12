@@ -22,18 +22,18 @@ section header{
 }
 
 section#hello header{
-	background:silver url('https://picsum.photos/id/27/900/400') center center no-repeat;
+	background:silver url('https://picsum.photos/id/534/900/400?grayscale') center center no-repeat;
 	background-size:cover;
 
 }
 
 section#work header{
-	background:silver url('https://picsum.photos/id/301/900/400') center center no-repeat;
+	background:silver url('https://picsum.photos/id/319/900/400?grayscale') center center no-repeat;
 	background-size:cover;
 }
 
 section#contact header{
-	background:silver url('https://picsum.photos/id/58/900/400') center center no-repeat;
+	background:silver url('https://picsum.photos/id/221/900/400?grayscale') center center no-repeat;
 	background-size:cover;
 }
 
